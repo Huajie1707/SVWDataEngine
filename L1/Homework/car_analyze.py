@@ -15,13 +15,14 @@ result = result[~result['problem'].isin([''])]
 print('Step3')
 
 rs1 = result.groupby('brand').count().sort_values('id', ascending=False)
-print(rs1)
+#rss = rs1['brand']
+print(rs1.loc[:,['id']].rename(columns={'id':'result'}))
 rs2 = result.groupby('car_model').count().sort_values('id', ascending=False)
-print(rs2)
+print(print(rs2.loc[:,['id']].rename(columns={'id':'result'})))
 #rs3 = result.groupby(['brand','car_model']).count()
 #print(rs3)
-rs4 = result.groupby(['brand','car_model']).count().groupby('brand').agg([np.sum, np.mean])#.sort_values('id', ascending=False)
-print(rs4)
+rs4 = result.groupby(['brand','car_model']).count().groupby('brand', group_keys=False).agg([np.mean])#.sort_values('id', axis=1, ascending=False)
+print(rs4.loc[:,['id']])
 
 
 # 将genres进行one-hot编码（离散特征有多少取值，就用多少维来表示这个特征）
