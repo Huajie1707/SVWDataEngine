@@ -22,6 +22,7 @@ print(print(rs2.loc[:,['id']].rename(columns={'id':'result'})))
 #rs3 = result.groupby(['brand','car_model']).count()
 #print(rs3)
 rs4 = result.groupby(['brand','car_model']).count().groupby('brand', group_keys=False).agg([np.mean])#.sort_values('id', axis=1, ascending=False)
+
 print(rs4.loc[:,['id']])
 
 

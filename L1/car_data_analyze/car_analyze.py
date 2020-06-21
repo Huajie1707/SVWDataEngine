@@ -21,3 +21,4 @@ print(df2)
 #df2.to_csv('temp.csv', index=False)
 query = ('A11', 'sum')
 print(df2.sort_values(query, ascending=False))
+
